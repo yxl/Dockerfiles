@@ -1,7 +1,7 @@
 #!/bin/bash
 
 ## replace hadoop config
-HADOOP_EXTRA_CONF_DIR = /config/hadoop
+HADOOP_EXTRA_CONF_DIR=/config/hadoop
 if [ -d "$HADOOP_EXTRA_CONF_DIR" ]; then
 	cp $HADOOP_EXTRA_CONF_DIR/* /usr/local/hadoop/etc/hadoop/
 fi
