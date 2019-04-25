@@ -18,13 +18,12 @@ RUN sed -i 's#^org.apache.sqoop.submission.engine.mapreduce.configuration.direct
 # Create a soft link to make futher upgrade transparent
 RUN ln -s $SQOOP_HOME /usr/local/sqoop
 
-# Set environment
-ENV PATH $PATH:$SQOOP_HOME/bin
-
 # Add mysql driver and default config file
 RUN wget "https://dev.mysql.com/get/Downloads/Connector-J/mysql-connector-java-${MYSQL_DRIVER_VERSION}.tar.gz"
 RUN mkdir -p $SQOOP_HOME/lib/ && tar -xzf "mysql-connector-java-${MYSQL_DRIVER_VERSION}.tar.gz" --strip-components=1 --no-same-owner -C $SQOOP_HOME/lib/ "mysql-connector-java-${MYSQL_DRIVER_VERSION}/mysql-connector-java-${MYSQL_DRIVER_VERSION}.jar"
 
+# Set environment
+ENV PATH $PATH:$SQOOP_HOME/bin
 ENV HADOOP_COMMON_HOME ${HADOOP_HOME}/share/hadoop/common
 ENV HADOOP_HDFS_HOME ${HADOOP_HOME}/share/hadoop/hdfs
 ENV HADOOP_MAPRED_HOME ${HADOOP_HOME}/share/hadoop/mapreduce
