@@ -18,7 +18,10 @@ ENV SQOOP_HOME /usr/local/sqoop-$SQOOP_VERSION.bin__hadoop-2.6.0
 ADD conf/ $SQOOP_HOME
 
 # Fix "Could not load org.apache.hadoop.hive.conf.HiveConf" error
-RUN cp hive-common-*.jar  $SQOOP_HOME/lib
+RUN cp $HIVE_HOME/lib/hive-common-*.jar  $SQOOP_HOME/lib
+
+# Fix "java.lang.NoClassDefFoundError: org/json/JSONObject" error when creating job
+RUN wget -O $SQOOP_HOME/lib/json-20180813.jar http://central.maven.org/maven2/org/json/json/20180813/json-20180813.jar
 
 # Create a soft link to make futher upgrade transparent
 RUN ln -s $SQOOP_HOME /usr/local/sqoop
