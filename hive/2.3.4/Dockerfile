@@ -31,4 +31,4 @@ ADD init_hive.sh /etc/init_hive.sh
 
 WORKDIR $HIVE_HOME
 
-CMD ["/etc/bootstrap.sh", "-d"]
+CMD ["/etc/bootstrap.sh"]
