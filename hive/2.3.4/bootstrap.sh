@@ -22,3 +22,5 @@ schematool --dbType mysql --initSchem
 
 nohup hive --service metastore &
 hiveserver2
+# wait for ever
+tail -f /dev/null
