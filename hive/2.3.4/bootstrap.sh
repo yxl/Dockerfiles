@@ -13,5 +13,5 @@ if [ -d "$EXTRA_CONF_DIR" ]; then
 	cp $EXTRA_CONF_DIR/* /usr/local/hive/conf
 fi
 
-hive --service metastore
+nohup hive --service metastore &
 hiveserver2
