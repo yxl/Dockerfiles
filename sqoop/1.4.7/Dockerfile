@@ -10,6 +10,7 @@ ENV SQOOP_VERSION=1.4.7
 RUN apk --no-cache add openjdk8
 
 # Add MySQL client to import data from MySQL to HIVE
+# Fix 'cannot find mysqldump'
 RUN apk add mysql-client
 
 # Download Apche Hive
