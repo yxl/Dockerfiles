@@ -14,7 +14,7 @@ docker service create \
 	--replicas 1 \
 	--detach=true \
 	--mount type=bind,source=/etc/localtime,target=/etc/localtime \
-	yuanxulei/sqoop:1.4.7-hive-2.3.4
+	yuanxulei/sqoop:1.4.7-hive-2.3.5
 ```
 ## Custom configuration
 To specifiy the hadoop conffiles, refer to the following script.
@@ -33,5 +33,5 @@ docker service create \
         --mount type=bind,src=/data/hadoop/config,dst=/config/hadoop \
         --mount type=bind,src=/data/hadoop/hdfs,dst=/tmp/hadoop-root \
         --mount type=bind,src=/data/hadoop/logs,dst=/usr/local/hadoop/logs \
-        yuanxulei/sqoop:1.4.7-hive-2.3.4
+        yuanxulei/sqoop:1.4.7-hive-2.3.5
 ```
