@@ -1,14 +1,14 @@
 # Based on Hadoop image
-FROM newnius/hadoop:2.7.4
+FROM yuanxulei/hadoop:2.7.4
 
 USER root
 
 ENV MYSQL_DRIVER_VERSION=5.1.47
 
-ENV HIVE_VERSION=2.3.4
+ENV HIVE_VERSION=2.3.5
 
 # Download Apche Hive
-RUN wget -O apache-hive.tar.gz https://mirrors.tuna.tsinghua.edu.cn/apache/hive/hive-$HIVE_VERSION/apache-hive-$HIVE_VERSION-bin.tar.gz && \
+RUN wget -O apache-hive.tar.gz http://ftp.kddilabs.jp/infosystems/apache/hive/hive-$HIVE_VERSION/apache-hive-$HIVE_VERSION-bin.tar.gz && \
 tar -xzf apache-hive.tar.gz -C /usr/local/ && rm apache-hive.tar.gz
 
 # Create a soft link to make futher upgrade transparent
