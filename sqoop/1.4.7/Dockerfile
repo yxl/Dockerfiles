@@ -1,5 +1,5 @@
 # Based on Hadoop image
-FROM yuanxulei/hive-cluster:2.3.4-hadoop-2.7.4
+FROM yuanxulei/hive-cluster:2.3.5-hadoop-2.7.4
 
 USER root
 
@@ -9,8 +9,11 @@ ENV SQOOP_VERSION=1.4.7
 
 RUN apk --no-cache add openjdk8
 
+# Add MySQL client to import data from MySQL to HIVE
+RUN apk add mysql-client
+
 # Download Apche Hive
-RUN wget -O sqoop.tar.gz https://mirrors.tuna.tsinghua.edu.cn/apache/sqoop/$SQOOP_VERSION/sqoop-$SQOOP_VERSION.bin__hadoop-2.6.0.tar.gz && \
+RUN wget -O sqoop.tar.gz http://ftp.kddilabs.jp/infosystems/apache/sqoop/$SQOOP_VERSION/sqoop-$SQOOP_VERSION.bin__hadoop-2.6.0.tar.gz && \
 tar -xzf sqoop.tar.gz -C /usr/local/ && rm sqoop.tar.gz
 
 ENV SQOOP_HOME /usr/local/sqoop-$SQOOP_VERSION.bin__hadoop-2.6.0

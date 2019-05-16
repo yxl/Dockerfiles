@@ -1,6 +1,6 @@
 #!/bin/bash
 
-TAG=yuanxulei/sqoop:1.4.7-hive-2.3.4
+TAG=yuanxulei/sqoop:1.4.7-hive-2.3.5
 
 docker build --tag $TAG . || exit 1
 docker login || exit 2
