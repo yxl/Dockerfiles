@@ -7,6 +7,9 @@ USER root
 # Prerequisites
 RUN apk add --no-cache openssh openssl openjdk8-jre rsync bash procps nss
 
+# Add MySQL client to import data from MySQL to HIVE
+RUN apk add mysql-client
+
 ENV JAVA_HOME /usr/lib/jvm/java-1.8-openjdk
 ENV PATH $PATH:$JAVA_HOME/bin
 
