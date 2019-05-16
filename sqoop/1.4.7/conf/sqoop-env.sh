@@ -33,3 +33,7 @@
 
 #Set the path for where zookeper config dir is
 #export ZOOCFGDIR=
+
+# Fix "hcatalog does not exist! HCatalog jobs will fail." issue
+# when run `configure-sqoop` or `sqoop` command
+HCAT_HOME=$HIVE_HOME/hcatalog
