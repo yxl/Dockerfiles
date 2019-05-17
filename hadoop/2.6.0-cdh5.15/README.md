@@ -114,5 +114,5 @@ docker service create \
   --mount type=bind,source=/data/hadoop/config,target=/config/hadoop \
   --mount type=bind,source=/data/hadoop/hdfs/master,target=/tmp/hadoop-root \
   --mount type=bind,source=/data/hadoop/logs/master,target=/usr/local/hadoop/logs \
-  yuanxulei/hadoop:2.7.4
+  yuanxulei/hadoop:2.6.0-cdh5.15.0
 ```
