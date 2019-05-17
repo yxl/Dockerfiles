@@ -7,7 +7,7 @@ ENV MYSQL_DRIVER_VERSION=5.1.47
 
 ENV HIVE_VERSION=1.1.0-cdh5.15.0
 
-# Download Apche Hive
+# Download Hive
 RUN wget -O hive.tar.gz http://archive.cloudera.com/cdh5/cdh/5/hive-$HIVE_VERSION.tar.gz && \
 tar -xzf hive.tar.gz -C /usr/local/ && rm hive.tar.gz
 
