@@ -1,5 +1,5 @@
-# Based on Hadoop image
-FROM yuanxulei/sqoop:1.4.6-cdh5.15.0-ubuntu
+# Based on hive image
+FROM yuanxulei/sqoop:1.4.6-hive1.1.0-cdh5.15.0-ubuntu
 
 USER root
 
