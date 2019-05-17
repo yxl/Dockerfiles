@@ -20,7 +20,7 @@ ENV PATH $PATH:$HIVE_HOME/bin
 
 # Add mysql driver and default config file
 RUN wget "https://dev.mysql.com/get/Downloads/Connector-J/mysql-connector-java-${MYSQL_DRIVER_VERSION}.tar.gz"
-RUN tar -xzf "mysql-connector-java-${MYSQL_DRIVER_VERSION}.tar.gz" --strip-components=1 --no-same-owner -C $HIVE_HOME/lib/ "mysql-connector-java-${MYSQL_DRIVER_VERSION}/mysql-connector-java-${MYSQL_DRIVER_VERSION}.jar"
+RUN tar -xzf "mysql-connector-java-${MYSQL_DRIVER_VERSION}.tar.gz" --strip-components=1 --no-same-owner -C $HIVE_HOME/lib/ "mysql-connector-java-${MYSQL_DRIVER_VERSION}/mysql-connector-java-${MYSQL_DRIVER_VERSION}.jar" && rm -f "mysql-connector-java-${MYSQL_DRIVER_VERSION}.tar.gz"
 ADD hive-site.xml $HIVE_HOME/conf
 
 # Rename bootstrap script in origin image
