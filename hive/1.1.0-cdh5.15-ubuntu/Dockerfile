@@ -1,5 +1,5 @@
 # Based on Hadoop image
-FROM yuanxulei/hadoop:2.6.0-cdh5.15.0
+FROM yuanxulei/hadoop:2.6.0-cdh5.15.0-ubuntu
 
 USER root
 
