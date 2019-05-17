@@ -7,7 +7,7 @@ USER root
 RUN apt-get update -y
 
 # Prerequisites
-RUN apt install --fix-missing -q -y openssh-server openssh-client procps
+RUN apt install --fix-missing -q -y openssh-server openssh-client procps rsync
 
 # Add MySQL client to import data from MySQL to HIVE
 RUN apt install -y mysql-client
@@ -22,6 +22,7 @@ RUN update-alternatives --install /usr/bin/java java /usr/local/jdk1.8.0_211/bin
 RUN update-alternatives --install /usr/bin/javac javac /usr/local/jdk1.8.0_211/bin/javac 100
 
 # Passwordless SSH
+RUN rm -f /etc/ssh/ssh_host_dsa_key && ssh-keygen -q -N "" -t dsa -f /etc/ssh/ssh_host_dsa_key
 RUN rm -f /etc/ssh/ssh_host_rsa_key && ssh-keygen -q -N "" -t rsa -f /etc/ssh/ssh_host_rsa_key
 RUN ssh-keygen -q -N "" -t rsa -f /root/.ssh/id_rsa
 RUN cp /root/.ssh/id_rsa.pub /root/.ssh/authorized_keys
