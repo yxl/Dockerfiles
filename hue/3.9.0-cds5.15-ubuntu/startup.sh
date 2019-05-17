@@ -2,4 +2,9 @@
 
 hue syncdb --noinput
 hue migrate
-supervisor
+
+# 启动 HUE
+nohup supervisor &
+
+# 启动 HIVE
+/etc/bootstrap.sh
