@@ -11,7 +11,7 @@ docker service create \
   --detach=true \
   --endpoint-mode dnsrr \
   --mount type=bind,source=/etc/localtime,target=/etc/localtime \
-  yuanxulei/hadoop:2.7.4
+  yuanxulei/hadoop:2.6.0-cdh5.15.0
 ```
 
 ## Start slaves
@@ -25,7 +25,7 @@ docker service create \
   --detach=true \
   --endpoint-mode dnsrr \
   --mount type=bind,source=/etc/localtime,target=/etc/localtime \
-  yuanxulei/hadoop:2.7.4
+  yuanxulei/hadoop:2.6.0-cdh5.15.0
 ```
 
 ```bash
@@ -37,7 +37,7 @@ docker service create \
   --detach=true \
   --endpoint-mode dnsrr \
   --mount type=bind,source=/etc/localtime,target=/etc/localtime \
-  yuanxulei/hadoop:2.7.4
+  yuanxulei/hadoop:2.6.0-cdh5.15.0
 ```
 
 ```bash
@@ -49,7 +49,7 @@ docker service create \
   --detach=true \
   --endpoint-mode dnsrr \
   --mount type=bind,source=/etc/localtime,target=/etc/localtime \
-  yuanxulei/hadoop:2.7.4
+  yuanxulei/hadoop:2.6.0-cdh5.15.0
 ```
 
 ## Init for the first time
@@ -59,13 +59,16 @@ Run these commands on the master node.
 
 ```bash
 # stop HDFS services
-sbin/stop-dfs.sh
+stop-dfs.sh
+
+# start history server
+mr-jobhistory-daemon.sh start historyserver
 
 # format HDFS meta data
-bin/hadoop namenode -format
+hadoop namenode -format
 
 # restart HDFS services
-sbin/start-dfs.sh
+start-dfs.sh
 ```
 
 ## Run a test job
