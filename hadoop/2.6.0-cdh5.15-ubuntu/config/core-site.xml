@@ -25,4 +25,8 @@
 		<name>fs.default.name</name>
 		<value>hdfs://hadoop-master:8020</value>
 	</property>
+  <property>
+    <name>hadoop.tmp.dir</name>
+    <value>/usr/local/hadoop/tmp</value>
+  </property>
 </configuration>
