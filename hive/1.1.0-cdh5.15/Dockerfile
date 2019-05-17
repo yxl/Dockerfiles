@@ -9,7 +9,7 @@ ENV HIVE_VERSION=1.1.0-cdh5.15.0
 
 # Download Hive
 RUN wget -O hive.tar.gz http://archive.cloudera.com/cdh5/cdh/5/hive-$HIVE_VERSION.tar.gz && \
-tar -xzf hive.tar.gz -C /usr/local/ && rm hive.tar.gz
+tar -xzf hive.tar.gz -C /usr/local/ && rm -f hive.tar.gz
 
 # Create a soft link to make futher upgrade transparent
 RUN ln -s /usr/local/hive-$HIVE_VERSION /usr/local/hive

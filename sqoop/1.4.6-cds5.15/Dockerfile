@@ -13,13 +13,16 @@ RUN apk --no-cache add openjdk8
 # Fix 'cannot find mysqldump'
 RUN apk add mysql-client
 
-# Download Apche Hive
+# Download sqoop
 RUN wget -O sqoop.tar.gz http://archive.cloudera.com/cdh5/cdh/5/sqoop-$SQOOP_VERSION.tar.gz && \
-tar -xzf sqoop.tar.gz -C /usr/local/ && rm sqoop.tar.gz
+  tar -xzf sqoop.tar.gz -C /usr/local/ && rm -f sqoop.tar.gz
 
 ENV SQOOP_HOME /usr/local/sqoop-$SQOOP_VERSION
 
 ADD conf/ $SQOOP_HOME/conf
+
+# Fix "java.lang.NoClassDefFoundError: org/json/JSONObject" error when creating job
+RUN wget -O $SQOOP_HOME/lib/json-20180813.jar http://central.maven.org/maven2/org/json/json/20180813/json-20180813.jar
 
 # Add 'permission javax.management.MBeanTrustPermission "register";' to java.policy
 # Fix "ERROR Could not register mbeans java.security.AccessControlException: access denied ("javax.management.MBeanTrustPermission" "register")"
