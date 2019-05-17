@@ -21,8 +21,6 @@ fi
 $HADOOP_PREFIX/sbin/stop-yarn.sh
 $HADOOP_PREFIX/sbin/stop-dfs.sh
 
-mkdir -p $HADOOP_PREFIX/tmp
-
 $HADOOP_PREFIX/sbin/start-dfs.sh
 $HADOOP_PREFIX/sbin/start-yarn.sh
 $HADOOP_PREFIX/sbin/mr-jobhistory-daemon.sh start historyserver
