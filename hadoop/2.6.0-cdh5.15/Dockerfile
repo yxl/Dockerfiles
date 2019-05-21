@@ -10,6 +10,10 @@ RUN apk add --no-cache openssh openssl openjdk8-jre rsync bash procps nss
 # Add MySQL client to import data from MySQL to HIVE
 RUN apk add mysql-client
 
+# Fix "Cannot initialize class org.xerial.snappy.Snappy"
+# https://confluence.atlassian.com/confkb/editor-fails-to-load-in-confluence-6-x-due-to-could-not-initialize-class-org-xerial-snappy-snappy-error-859462192.html
+RUN apk add libc6-compat
+
 ENV JAVA_HOME /usr/lib/jvm/java-1.8-openjdk
 ENV PATH $PATH:$JAVA_HOME/bin
 
