@@ -57,6 +57,9 @@ RUN sed -i "/^export JAVA_HOME/ s:.*:export JAVA_HOME=${JAVA_HOME}\nexport HADOO
 
 RUN sed -i '/^export HADOOP_CONF_DIR/ s:.*:export HADOOP_CONF_DIR=$HADOOP_PREFIX/etc/hadoop/:' $HADOOP_PREFIX/etc/hadoop/hadoop-env.sh
 
+# copy fairscheduler*.jar to $HADOOP_HOME/lib
+RUN cp `find $HADOOP_HOME/ -name "hadoop-fairscheduler*.jar"|head -1` $HADOOP_HOME/lib
+
 WORKDIR $HADOOP_HOME
 
 ADD bootstrap.sh /etc/bootstrap.sh
